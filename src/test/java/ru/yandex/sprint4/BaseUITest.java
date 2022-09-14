@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.html5.WebStorage;
 
 
@@ -15,7 +16,7 @@ public abstract class BaseUITest {
     protected static WebDriver webDriver;
 
     @BeforeClass
-    public static void setup(){
+    public static void setup() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         //WebDriverManager.firefoxdriver().setup();
@@ -24,10 +25,10 @@ public abstract class BaseUITest {
     }
 
     @After
-    public void clearData(){
+    public void clearData() {
         webDriver.manage().deleteAllCookies();
-        ((WebStorage)webDriver).getSessionStorage().clear();
-        ((WebStorage)webDriver).getLocalStorage().clear();
+        ((WebStorage) webDriver).getSessionStorage().clear();
+        ((WebStorage) webDriver).getLocalStorage().clear();
     }
 
     @AfterClass

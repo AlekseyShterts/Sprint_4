@@ -29,80 +29,107 @@ public class MainPage extends BasePage {
     private By orderButtonOnBottom = By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM");
     //локатор кнопки Заказать в заголовке страницы
     private By orderButtonOnTop = By.className("Button_Button__ra12g");
+    //локатор кнопки закрытия окна оповещения о использовании куки
+    private By cookieButton = By.id("rcc-confirm-button");
 
-    public MainPage(WebDriver webDriver){
+    public MainPage(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void open() {
         webDriver.get("https://qa-scooter.praktikum-services.ru/");
     }
+
     public By getQuest1() {
         return quest1;
     }
+
     public By getAnswerOnQuest1() {
         return answerOnQuest1;
     }
+
     public By getQuest2() {
         return quest2;
     }
+
     public By getAnswerOnQuest2() {
         return answerOnQuest2;
     }
+
     public By getQuest3() {
         return quest3;
     }
+
     public By getAnswerOnQuest3() {
         return answerOnQuest3;
     }
+
     public By getQuest4() {
         return quest4;
     }
+
     public By getAnswerOnQuest4() {
         return answerOnQuest4;
     }
+
     public By getQuest5() {
         return quest5;
     }
+
     public By getAnswerOnQuest5() {
         return answerOnQuest5;
     }
+
     public By getQuest6() {
         return quest6;
     }
+
     public By getAnswerOnQuest6() {
         return answerOnQuest6;
     }
+
     public By getQuest7() {
         return quest7;
     }
+
     public By getAnswerOnQuest7() {
         return answerOnQuest7;
     }
+
     public By getQuest8() {
         return quest8;
     }
+
     public By getAnswerOnQuest8() {
         return answerOnQuest8;
     }
-    public boolean checkIsDisplayedAnswer (By answer,By quest) {
-       new WebDriverWait(webDriver,2).until(ExpectedConditions.visibilityOfElementLocated(answer));
-       return webDriver.findElement(quest).isDisplayed();
+
+    public boolean checkIsDisplayedAnswer(By answer, By quest) {
+        new WebDriverWait(webDriver, 2).until(ExpectedConditions.visibilityOfElementLocated(answer));
+        return webDriver.findElement(quest).isDisplayed();
     }
+
     public void scrollPage(By quest) {
         WebElement element = webDriver.findElement(quest);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
-    public void clickQuest(By quest){
+
+    public void clickQuest(By quest) {
         webDriver.findElement(quest).click();
     }
+
     public void clickOrderButtonOnBottom(By quest) {
         WebElement element = webDriver.findElement(quest);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
         webDriver.findElement(orderButtonOnBottom).click();
     }
+
     public void clickOrderButtonOnTop() {
         webDriver.findElement(orderButtonOnTop).click();
+    }
+
+    public void clickCookieButton() {
+        webDriver.findElement(cookieButton).click();
     }
 }
 

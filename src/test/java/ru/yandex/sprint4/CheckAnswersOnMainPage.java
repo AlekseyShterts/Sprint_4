@@ -1,9 +1,17 @@
 package ru.yandex.sprint4;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CheckAnswersOnMainPage extends BaseUITest {
+
+    @Before
+    public void closeCookie() {
+        MainPage mainPage = new MainPage(webDriver);
+        mainPage.open();
+        mainPage.clickCookieButton();
+    }
 
     @Test
     public void checkQuest1OnMainPage() {
@@ -11,22 +19,22 @@ public class CheckAnswersOnMainPage extends BaseUITest {
         mainPage.open();
         mainPage.scrollPage(mainPage.getQuest1());
         mainPage.clickQuest(mainPage.getQuest1());
-        boolean isDisplayed = mainPage.checkIsDisplayedAnswer(mainPage.getAnswerOnQuest1(),mainPage.getQuest1());
+        boolean isDisplayed = mainPage.checkIsDisplayedAnswer(mainPage.getAnswerOnQuest1(), mainPage.getQuest1());
         Assert.assertTrue("Answer on quest 1 is not displayed", isDisplayed);
     }
 
     @Test
-    public void checkQuest2OnMainPage(){
+    public void checkQuest2OnMainPage() {
         MainPage mainPage = new MainPage(webDriver);
         mainPage.open();
         mainPage.scrollPage(mainPage.getQuest2());
         mainPage.clickQuest(mainPage.getQuest2());
-        boolean isDisplayed = mainPage.checkIsDisplayedAnswer(mainPage.getAnswerOnQuest2(),mainPage.getQuest2());
+        boolean isDisplayed = mainPage.checkIsDisplayedAnswer(mainPage.getAnswerOnQuest2(), mainPage.getQuest2());
         Assert.assertTrue("Answer on quest 2 is not displayed", isDisplayed);
     }
 
     @Test
-    public void checkQuest3OnMainPage(){
+    public void checkQuest3OnMainPage() {
         MainPage mainPage = new MainPage(webDriver);
         mainPage.open();
         mainPage.scrollPage(mainPage.getQuest3());
@@ -56,7 +64,7 @@ public class CheckAnswersOnMainPage extends BaseUITest {
     }
 
     @Test
-    public void checkQuest6OnMainPage(){
+    public void checkQuest6OnMainPage() {
         MainPage mainPage = new MainPage(webDriver);
         mainPage.open();
         mainPage.scrollPage(mainPage.getQuest6());
@@ -66,7 +74,7 @@ public class CheckAnswersOnMainPage extends BaseUITest {
     }
 
     @Test
-    public void checkQuest7OnMainPage()  {
+    public void checkQuest7OnMainPage() {
         MainPage mainPage = new MainPage(webDriver);
         mainPage.open();
         mainPage.scrollPage(mainPage.getQuest7());
